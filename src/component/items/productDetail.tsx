@@ -4,22 +4,10 @@ import { Link, useParams } from 'react-router-dom';
 import './productDetail.css'
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cartStore";
-interface productDate{
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: {
-    rate: number;
-    count: number;
-  };
-}
 
 function ProductDetail() {
   const { id } = useParams();
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
   const dispatch = useDispatch();
   const addToCart = () => {
     dispatch(cartActions.addCart({ id: id }));
@@ -28,7 +16,7 @@ function ProductDetail() {
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data.slice(id-1,id)))
+      .then((response) => setProducts(response.data.slice(id -1,id)))
       .catch((error) => console.log(error));
   }, []);
 

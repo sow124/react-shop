@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./productList.css"
 
 function DegitalProduct({ isDarkMode}:any){
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     axios

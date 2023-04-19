@@ -9,11 +9,11 @@ function CartItems(props: any) {
     (state: any) => state.cartStore.items[`${props.id}`]?.count || 0,
   );
 
-  const reduceFromCart = (id:any & void) => {
+  const reduceFromCart = (id: { id: any }) => {
     dispatch(cartActions.removeCart({ id: props.id }));
   };
 
-  const addToCart = () => {
+  const addToCart = (id: { id: any }) => {
     dispatch(cartActions.addCart({ id: props.id }));
   };
 
@@ -34,13 +34,13 @@ function CartItems(props: any) {
           ${(props.price * cartItemCount).toFixed(2)}
         </p>
           <div className="btnContainer">
-            <button className="minusBtn" onClick={reduceFromCart}>
+            <button className="minusBtn" onClick={()=>reduceFromCart({id:props.id})}>
               -
             </button>
             <button className="CountBtn">
               {cartItemCount}
             </button>
-            <button className="plusBtn" onClick={addToCart}>
+            <button className="plusBtn" onClick={()=>addToCart({id:props.id})}>
               +
             </button>
           </div>
