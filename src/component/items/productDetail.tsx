@@ -6,9 +6,10 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cartStore";
 
 function ProductDetail() {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const [products, setProducts] = useState<any[]>([]);
   const dispatch = useDispatch();
+
   const addToCart = () => {
     dispatch(cartActions.addCart({ id: id }));
   };
@@ -16,9 +17,9 @@ function ProductDetail() {
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data.slice(id -1,id)))
+      .then((response) => setProducts(response.data.slice(id -1, id)))
       .catch((error) => console.log(error));
-  }, []);
+  }, [id]);
 
 
   const getCategory = (category: string) => {
