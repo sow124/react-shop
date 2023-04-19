@@ -20,6 +20,7 @@
     "recoil": "^0.7.7",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "styled-components": "^5.3.9",
     "styled-reset": "^4.4.6"
   },
   "devDependencies": {
