@@ -126,7 +126,7 @@ function ProductDetail() {
               </div>
               <span className="productPrice">${product.price}</span>
               <div className="cartContainer">
-                <button className="cartBtn" onClick={()=>addToCart(product.id)}>장바구니에 담기</button>
+                <button className="cartBtn" onClick={()=>addToCart}>장바구니에 담기</button>
                 <Link to={`/cart`}>
                   <div className="carLink">장바구로 이동</div>
                 </Link>
