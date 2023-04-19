@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 
 function Header({ isDarkMode , toggleDarkMode ,darkModeBtn }:any){
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
   const [search,setSearch] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ function Header({ isDarkMode , toggleDarkMode ,darkModeBtn }:any){
     const {
       target:{value},
     }=e;
-    var arr: React.SetStateAction<never[]> =[];
+    var arr: any =[];
     for(var i in products){
       if(products[i].title.includes(value)){
         arr.push(products[i]);
@@ -88,7 +88,7 @@ return(
            <input onChange={onChange} onFocus={onFocusHandler} type="search" className={[styles.input,localStorage.getItem('bgMode')=="light" ?  styles.dark :styles.light ].join(" ")} placeholder='검색' />
            {isSearch && (
         <ul className={styles.searchui}>
-          {search.map((product) => (
+          {search.map((product:any) => (
             <li key={product.id} className={styles.searchlist}>
               <Link to={`/products/${product.id}`} className={styles.searchlistLink}>
                 <span className={styles.producttitle}>

@@ -20,7 +20,7 @@ export interface CartItems {
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: JSON.parse(localStorage.getItem('cartItems'))||{},
+    items: JSON.parse(localStorage.getItem('cartItems')??'{}')||{},
     totalCount: 0,
   },
   reducers: {
