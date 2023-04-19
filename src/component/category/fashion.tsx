@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 
-function FashionCategory({ isDarkMode}:Home){
-  const [products, setProducts] = useState([]);
+function FashionCategory({ isDarkMode}:any){
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {

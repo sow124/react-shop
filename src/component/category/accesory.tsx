@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 
-function AccesoryCategory({ isDarkMode}:Home){
-  const [products, setProducts] = useState([]);
+function AccesoryCategory({ isDarkMode}:any){
+  const [products, setProducts] = useState<any[]>([]);
 
   useEffect(() => {
     axios
