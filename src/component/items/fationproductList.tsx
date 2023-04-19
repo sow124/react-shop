@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./productList.css"
 
-function FashionProduct({ isDarkMode}:Home){
+function FashionProduct({ isDarkMode}:any){
   const [products, setProducts] = useState([]);
 
   useEffect(() => {

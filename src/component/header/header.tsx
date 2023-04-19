@@ -8,7 +8,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux'
 
 
-function Header({ isDarkMode , toggleDarkMode ,darkModeBtn }:home){
+function Header({ isDarkMode , toggleDarkMode ,darkModeBtn }:any){
   const [products, setProducts] = useState([]);
   const [search,setSearch] = useState([]);
   const [isSearch, setIsSearch] = useState(false);
