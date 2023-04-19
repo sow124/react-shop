@@ -6,18 +6,18 @@ import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cartStore";
 
 function ProductDetail() {
-  const { id } = useParams<{ id: string }>();
-  const [products, setProducts] = useState<any[]>([]);
+  const { id } = useParams<{ id: string }>(); 
+  const [product, setProduct] = useState<any>(null); 
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(cartActions.addCart({ id: id }));
-  };
+  dispatch(cartActions.addCart({ id: Number(id) }));
+};
  
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products")
-      .then((response) => setProducts(response.data.slice(id -1, id)))
+      .get(`https://fakestoreapi.com/products/${id}`)
+      .then((response) => setProduct(response.data))
       .catch((error) => console.log(error));
   }, [id]);
 
@@ -42,7 +42,7 @@ function ProductDetail() {
     }
     return result;
   };
-  var category = getCategory(products[0]?.category);
+  const category = product ? getCategory(product.category) : '';
   
   const getRateStar = (rateNumber: number) => {
     const stars = [];
@@ -105,7 +105,7 @@ function ProductDetail() {
 
   return (
     <section className="productDetailSection">
-      {products.map(product=>(
+      {product ? (
         <div key={product.id} className='ProductDeatilcontainer'>
           <div className='categoryContainer'>
             <ul className='ProductDetailcategory'>
@@ -126,7 +126,7 @@ function ProductDetail() {
               </div>
               <span className="productPrice">${product.price}</span>
               <div className="cartContainer">
-                <button className="cartBtn" onClick={addToCart}>장바구니에 담기</button>
+                <button className="cartBtn" onClick={()=>addToCart(product.id)}>장바구니에 담기</button>
                 <Link to={`/cart`}>
                   <div className="carLink">장바구로 이동</div>
                 </Link>
@@ -134,7 +134,7 @@ function ProductDetail() {
             </div>
           </div>
         </div>
-      ))}
+      ):(<p></p>)}
     </section>
   );
 }

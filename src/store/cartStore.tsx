@@ -6,6 +6,7 @@ export interface CartInfo {
 }
 
 interface CartState {
+  totalCount: any;
   items: Record<string, CartInfo>;
 }
 
@@ -24,7 +25,7 @@ const cartSlice = createSlice({
     totalCount: 0,
   },
   reducers: {
-    addCart: (state: any, action: any) => {
+    addCart: (state: CartState, action: { payload: { id: number } }) => {
       if (state.items[action.payload.id]) {
         state.items[action.payload.id].count++;
       } else {
@@ -36,7 +37,7 @@ const cartSlice = createSlice({
       state.totalCount++;
       localStorage.setItem('cartItems', JSON.stringify(state.items));
     },
-    removeCart: (state: any, action: any) => {
+    removeCart: (state: CartState, action: { payload: { id: number } }) => {
       state.items[action.payload.id].count--;
       state.totalCount--;
       if (state.items[action.payload.id].count === 0)
