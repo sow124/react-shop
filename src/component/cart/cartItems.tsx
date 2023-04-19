@@ -18,7 +18,7 @@ interface ProductData {
 }
 
 function CartList() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<any[]>([]);
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
@@ -32,7 +32,7 @@ function CartList() {
   let items: any = [];
   let totalPrice = 0;
 
-  Object.keys(cartItems).map((id) => {
+  Object.keys(cartItems).map((id:any) => {
     const itemProduct = products.find((product) => product.id === Number(id));
   if (itemProduct) {
     items.push(itemProduct);

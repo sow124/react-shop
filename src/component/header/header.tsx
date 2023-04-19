@@ -28,7 +28,7 @@ function Header({ isDarkMode , toggleDarkMode ,darkModeBtn }:any){
     const {
       target:{value},
     }=e;
-    var arr =[];
+    var arr: React.SetStateAction<never[]> =[];
     for(var i in products){
       if(products[i].title.includes(value)){
         arr.push(products[i]);

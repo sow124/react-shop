@@ -2,13 +2,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { cartActions } from '../../store/cartStore';
 
+
 function CartItems(props: any) {
   const dispatch = useDispatch();
   const cartItemCount = useSelector(
     (state: any) => state.cartStore.items[`${props.id}`]?.count || 0,
   );
 
-  const reduceFromCart = () => {
+  const reduceFromCart = (id:any & void) => {
     dispatch(cartActions.removeCart({ id: props.id }));
   };
 

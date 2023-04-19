@@ -17,6 +17,15 @@
   .productDetail{
     padding: 32px 0px !important;
   }
+  .light header nav ul {
+    background-color: rgb(42, 48, 60);
+  }
+  .dark header nav ul{
+    background-color: rgb(255, 255, 255);
+  }
+  .light header > nav > div > button > svg{
+    fill: white;
+  }
 }
 
 .productDetailSection{
@@ -193,15 +202,6 @@
 .light .carLink{
   border-color: white;
   color: white;
-}
-.light header nav ul {
-  background-color: rgb(42, 48, 60);
-}
-.dark header nav ul{
-  background-color: rgb(255, 255, 255);
-}
-.light header > nav > div > button > svg{
-  fill: white;
 }
 .light .modalContainer{
   color: black;

@@ -186,6 +186,10 @@
   .menuBtn{
     display: none;
   }
+  .listcontainer{
+    display: flex;
+    flex: 1;
+  }
   .list a{
     display: block;
     text-decoration: none;
