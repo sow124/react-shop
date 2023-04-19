@@ -9,11 +9,11 @@ function CartItems(props: any) {
     (state: any) => state.cartStore.items[`${props.id}`]?.count || 0,
   );
 
-  const reduceFromCart = (id: { id: any }) => {
+  const reduceFromCart = (id: any) => {
     dispatch(cartActions.removeCart({ id: props.id }));
   };
 
-  const addToCart = (id: { id: any }) => {
+  const addToCart = (id: any) => {
     dispatch(cartActions.addCart({ id: props.id }));
   };
 
