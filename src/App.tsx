@@ -42,7 +42,7 @@ function App() {
       document.body.className ='light'
     }
   }
-  document.body.className = localStorage.getItem('bgMode');
+  document.body.className = JSON.parse(localStorage.getItem('bgMode'));
   return (
       <ThemeProvider theme={localStorage.getItem('bgMode')=="light" ? darkTheme : lightTheme}>
         <GlobalStyles />
