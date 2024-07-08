@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export interface CartInfo {
   id: number;
@@ -19,9 +19,9 @@ export interface CartItems {
 }
 
 const cartSlice = createSlice({
-  name: 'cart',
+  name: "cart",
   initialState: {
-    items: JSON.parse(localStorage.getItem('cartItems')??'{}')||{},
+    items: JSON.parse(localStorage.getItem("cartItems") ?? "{}") || {},
     totalCount: 0,
   },
   reducers: {
@@ -35,13 +35,12 @@ const cartSlice = createSlice({
         };
       }
       state.totalCount++;
-      localStorage.setItem('cartItems', JSON.stringify(state.items));
+      localStorage.setItem("cartItems", JSON.stringify(state.items));
     },
     removeCart: (state: CartState, action: { payload: { id: number } }) => {
       state.items[action.payload.id].count--;
       state.totalCount--;
-      if (state.items[action.payload.id].count === 0)
-        delete state.items[action.payload.id];
+      if (state.items[action.payload.id].count === 0) delete state.items[action.payload.id];
     },
     buy: (state: any) => {
       state.items = {};
